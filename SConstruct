@@ -17,3 +17,9 @@ testcli = appenv.Program('test_cli', ['tests/test-cli.c'])
 Depends(demo, 'libdubins.so')
 Depends(test, 'libdubins.so')
 Depends(testcli, 'libdubins.so')
+
+prefix = '/home/ehuang/local'
+lib_dir = os.path.join(prefix, 'lib')
+include_dir = os.path.join(prefix, 'include')
+env.Alias('install', env.Install(lib_dir, 'libdubins.so'))
+env.Alias('install', env.Install(include_dir, 'include/dubins.h'))
